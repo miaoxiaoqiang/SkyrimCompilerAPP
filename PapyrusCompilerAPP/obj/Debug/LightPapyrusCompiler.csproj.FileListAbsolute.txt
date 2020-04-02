@@ -1,0 +1,11 @@
+E:\VSProject\PapyrusCompilerAPP\PapyrusCompilerAPP\bin\Debug\LightPapyrusCompiler.exe.config
+E:\VSProject\PapyrusCompilerAPP\PapyrusCompilerAPP\bin\Debug\LightPapyrusCompiler.exe
+E:\VSProject\PapyrusCompilerAPP\PapyrusCompilerAPP\bin\Debug\LightPapyrusCompiler.pdb
+E:\VSProject\PapyrusCompilerAPP\PapyrusCompilerAPP\obj\Debug\LightPapyrusCompiler.AboutForm.resources
+E:\VSProject\PapyrusCompilerAPP\PapyrusCompilerAPP\obj\Debug\LightPapyrusCompiler.ParamsForm.resources
+E:\VSProject\PapyrusCompilerAPP\PapyrusCompilerAPP\obj\Debug\LightPapyrusCompiler.Properties.Resources.resources
+E:\VSProject\PapyrusCompilerAPP\PapyrusCompilerAPP\obj\Debug\LightPapyrusCompiler.csproj.GenerateResource.cache
+E:\VSProject\PapyrusCompilerAPP\PapyrusCompilerAPP\obj\Debug\LightPapyrusCompiler.exe
+E:\VSProject\PapyrusCompilerAPP\PapyrusCompilerAPP\obj\Debug\LightPapyrusCompiler.pdb
+E:\VSProject\PapyrusCompilerAPP\PapyrusCompilerAPP\obj\Debug\LightPapyrusCompiler.PapyrusCompiler.resources
+E:\VSProject\PapyrusCompilerAPP\PapyrusCompilerAPP\bin\Debug\Fonts\ARIALUNI.ttf

@@ -1,0 +1,10 @@
+E:\VSProject\PapyrusCompilerAPP\PapyrusCompilerAPP\bin\Debug\PapyrusCompilerAPP.exe.config
+E:\VSProject\PapyrusCompilerAPP\PapyrusCompilerAPP\bin\Debug\PapyrusCompilerAPP.exe
+E:\VSProject\PapyrusCompilerAPP\PapyrusCompilerAPP\bin\Debug\PapyrusCompilerAPP.pdb
+E:\VSProject\PapyrusCompilerAPP\PapyrusCompilerAPP\obj\Debug\PapyrusCompilerAPP.AboutForm.resources
+E:\VSProject\PapyrusCompilerAPP\PapyrusCompilerAPP\obj\Debug\PapyrusCompilerAPP.PapyrusCompiler.resources
+E:\VSProject\PapyrusCompilerAPP\PapyrusCompilerAPP\obj\Debug\PapyrusCompilerAPP.Properties.Resources.resources
+E:\VSProject\PapyrusCompilerAPP\PapyrusCompilerAPP\obj\Debug\PapyrusCompilerAPP.ScriptCode.resources
+E:\VSProject\PapyrusCompilerAPP\PapyrusCompilerAPP\obj\Debug\PapyrusCompilerAPP.csproj.GenerateResource.cache
+E:\VSProject\PapyrusCompilerAPP\PapyrusCompilerAPP\obj\Debug\PapyrusCompilerAPP.exe
+E:\VSProject\PapyrusCompilerAPP\PapyrusCompilerAPP\obj\Debug\PapyrusCompilerAPP.pdb
