@@ -14,7 +14,6 @@ E:\VSProject\SimpleCompilerAPP\SkyrimCompilerAPP\PapyrusCompilerAPP\bin\Debug\Li
 E:\VSProject\SimpleCompilerAPP\SkyrimCompilerAPP\PapyrusCompilerAPP\bin\Debug\LightPapyrusCompiler.pdb
 E:\VSProject\SimpleCompilerAPP\SkyrimCompilerAPP\PapyrusCompilerAPP\obj\Debug\LightPapyrusCompiler.AboutForm.resources
 E:\VSProject\SimpleCompilerAPP\SkyrimCompilerAPP\PapyrusCompilerAPP\obj\Debug\LightPapyrusCompiler.ListFileForm.resources
-E:\VSProject\SimpleCompilerAPP\SkyrimCompilerAPP\PapyrusCompilerAPP\obj\Debug\LightPapyrusCompiler.ParamsForm.resources
 E:\VSProject\SimpleCompilerAPP\SkyrimCompilerAPP\PapyrusCompilerAPP\obj\Debug\LightPapyrusCompiler.Properties.Resources.resources
 E:\VSProject\SimpleCompilerAPP\SkyrimCompilerAPP\PapyrusCompilerAPP\obj\Debug\LightPapyrusCompiler.PapyrusCompiler.resources
 E:\VSProject\SimpleCompilerAPP\SkyrimCompilerAPP\PapyrusCompilerAPP\obj\Debug\LightPapyrusCompiler.csproj.GenerateResource.cache

@@ -31,13 +31,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListFileForm));
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.CompileFiles = new System.Windows.Forms.Button();
+            this.ReadFile = new System.Windows.Forms.Button();
+            this.FreshButton = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.FreshButton = new System.Windows.Forms.Button();
-            this.ReadFile = new System.Windows.Forms.Button();
-            this.CompileFiles = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -60,6 +60,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "文件搜索";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(267, 18);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(56, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "搜索";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.CompileFiles);
@@ -73,14 +82,35 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "源码列表";
             // 
-            // button1
+            // CompileFiles
             // 
-            this.button1.Location = new System.Drawing.Point(267, 18);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(56, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "搜索";
-            this.button1.UseVisualStyleBackColor = true;
+            this.CompileFiles.Location = new System.Drawing.Point(265, 191);
+            this.CompileFiles.Name = "CompileFiles";
+            this.CompileFiles.Size = new System.Drawing.Size(56, 23);
+            this.CompileFiles.TabIndex = 3;
+            this.CompileFiles.Text = "编译";
+            this.CompileFiles.UseVisualStyleBackColor = true;
+            this.CompileFiles.Click += new System.EventHandler(this.CompileFiles_Click);
+            // 
+            // ReadFile
+            // 
+            this.ReadFile.Location = new System.Drawing.Point(265, 130);
+            this.ReadFile.Name = "ReadFile";
+            this.ReadFile.Size = new System.Drawing.Size(56, 23);
+            this.ReadFile.TabIndex = 2;
+            this.ReadFile.Text = "读取";
+            this.ReadFile.UseVisualStyleBackColor = true;
+            this.ReadFile.Click += new System.EventHandler(this.ReadFile_Click);
+            // 
+            // FreshButton
+            // 
+            this.FreshButton.Location = new System.Drawing.Point(265, 67);
+            this.FreshButton.Name = "FreshButton";
+            this.FreshButton.Size = new System.Drawing.Size(56, 23);
+            this.FreshButton.TabIndex = 1;
+            this.FreshButton.Text = "刷新";
+            this.FreshButton.UseVisualStyleBackColor = true;
+            this.FreshButton.Click += new System.EventHandler(this.FreshButton_Click);
             // 
             // listBox1
             // 
@@ -100,36 +130,6 @@
             this.progressBar1.Size = new System.Drawing.Size(330, 18);
             this.progressBar1.TabIndex = 3;
             // 
-            // FreshButton
-            // 
-            this.FreshButton.Location = new System.Drawing.Point(265, 67);
-            this.FreshButton.Name = "FreshButton";
-            this.FreshButton.Size = new System.Drawing.Size(56, 23);
-            this.FreshButton.TabIndex = 1;
-            this.FreshButton.Text = "刷新";
-            this.FreshButton.UseVisualStyleBackColor = true;
-            this.FreshButton.Click += new System.EventHandler(this.FreshButton_Click);
-            // 
-            // ReadFile
-            // 
-            this.ReadFile.Location = new System.Drawing.Point(265, 130);
-            this.ReadFile.Name = "ReadFile";
-            this.ReadFile.Size = new System.Drawing.Size(56, 23);
-            this.ReadFile.TabIndex = 2;
-            this.ReadFile.Text = "读取";
-            this.ReadFile.UseVisualStyleBackColor = true;
-            this.ReadFile.Click += new System.EventHandler(this.ReadFile_Click);
-            // 
-            // CompileFiles
-            // 
-            this.CompileFiles.Location = new System.Drawing.Point(265, 191);
-            this.CompileFiles.Name = "CompileFiles";
-            this.CompileFiles.Size = new System.Drawing.Size(56, 23);
-            this.CompileFiles.TabIndex = 3;
-            this.CompileFiles.Text = "编译";
-            this.CompileFiles.UseVisualStyleBackColor = true;
-            this.CompileFiles.Click += new System.EventHandler(this.CompileFiles_Click);
-            // 
             // ListFileForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -143,7 +143,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ListFileForm";
-            this.Text = "源码列表";
+            this.Text = "PSC源码列表";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ListFileForm_FormClosing);
             this.Load += new System.EventHandler(this.ListFileForm_Load);
             this.groupBox1.ResumeLayout(false);

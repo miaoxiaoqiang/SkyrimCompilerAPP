@@ -7,7 +7,7 @@ namespace LightPapyrusCompiler
     /// 脚本编译参数模型
     /// </summary>
     [DataContract]
-    internal class ParamsModel
+    public class ParamsModel
     {
         /// <summary>
         /// 游戏标志
@@ -45,17 +45,17 @@ namespace LightPapyrusCompiler
         [DataMember]
         public List<string> AssemblyAruments { get; set; }
         /// <summary>
-        /// 文件集合
+        /// 源码文件集合
         /// </summary>
         [DataMember]
-        public List<string> FileLists { get; set; }
+        public string PscFolder { get; set; }
 
         public ParamsModel()
         {
             ComplieAruments = new List<string>();
             AssemblyAruments = new List<string>();
-            FileLists = new List<string>();
-            Import = "";
+            PscFolder = System.String.Empty;
+            Import = System.String.Empty;
         }
     }
 }

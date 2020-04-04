@@ -31,22 +31,29 @@ namespace LightPapyrusCompiler
         /// </summary>
         private static readonly int minimumArgumentCount = 4;
         private RichTextBox richTextBox;
-        private string _fileorfolder;
+        private ParamsModel _pm;
+        private List<string> _files;
 
         /// <summary>
         /// 初始化 <see cref="CompilerEngine"/> 类的新实例
         /// </summary>
-        public CompilerEngine(RichTextBox ctb, FileTypeEnum filetype, string fileorfolder)
+        public CompilerEngine(RichTextBox ctb, ParamsModel paramsModel)
         {
             richTextBox = ctb;
-            _fileorfolder = fileorfolder;
+            _pm = paramsModel;
+        }
+
+        public CompilerEngine(RichTextBox ctb, ParamsModel paramsModel, List<string> files)
+        {
+            richTextBox = ctb;
+            _pm = paramsModel;
+            _files = files;
         }
 
         /// <summary>
-        /// 验证参数个数及有效性
+        /// 组合参数
         /// </summary>
         /// <param name="args"></param>
-        /// <param name="filepath"></param>
         static string PackageArguments(ParamsModel args)
         {
             StringBuilder sb = new StringBuilder();
@@ -54,7 +61,7 @@ namespace LightPapyrusCompiler
             {
                 foreach (var item in args.ComplieAruments)
                 {
-                    sb.Append(item);
+                    sb.Append(" " + item + "");
                 }
             }
 
@@ -104,11 +111,8 @@ namespace LightPapyrusCompiler
         /// </summary>
         /// <param name="pm">参数实体</param>
         /// <param name="args">编译参数</param>
-        internal void RunCompiler()
+        internal void RunCompiler(FileTypeEnum fte)
         {
-            EDncrypt _ed = new EDncrypt(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + "\\config.dat", "", null);
-            _ed.StartDncrypt();
-
             string PapyrusCompilerEXE = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + "\\" + PapyrusCompilerName;
             if (!File.Exists(PapyrusCompilerEXE))
             {
@@ -117,12 +121,12 @@ namespace LightPapyrusCompiler
                 richTextBox.ScrollToCaret();
                 return;
             }
-            else if(string.IsNullOrEmpty(_ed.DeContent))
-            {
-                richTextBox.Clear();
-                richTextBox.AppendText("Papyrus Compiler: Error! Unable to use compile function because no configuration information was found.");
-                richTextBox.ScrollToCaret();
-            }
+            //else if(string.IsNullOrEmpty(_ed.DeContent))
+            //{
+            //    richTextBox.Clear();
+            //    richTextBox.AppendText("Papyrus Compiler: Error! Unable to use compile function because no configuration information was found.");
+            //    richTextBox.ScrollToCaret();
+            //}
             //else if (args.Length < minimumArgumentCount)
             //{
             //    twError.WriteLine("Papyrus Compiler: ERROR! Expecting at least " + minimumArgumentCount + " arguments, but received only " + args.Length + "!");
@@ -130,40 +134,65 @@ namespace LightPapyrusCompiler
             //}
             else
             {
-                DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(ParamsModel));
-                MemoryStream mStream = new MemoryStream(Encoding.UTF8.GetBytes(_ed.DeContent));
-                ParamsModel _pm = (ParamsModel)serializer.ReadObject(mStream);
-                mStream.Close();
-                mStream.Dispose();
-
-                string arguments = " "+ _fileorfolder + " " + PackageArguments(_pm);
-                
                 if (!File.Exists(PapyrusCompilerEXE))
                 {
                     twError.WriteLine("Papyrus Compiler: ERROR! Unable to find \"" + PapyrusCompilerName + "\" in \"" + PapyrusCompilerEXE.Substring(0, PapyrusCompilerEXE.LastIndexOf("\\") + 1) + "\"!");
                     return;
                 }
-                var proc = new Process
+
+                if (fte == FileTypeEnum.File)
                 {
-                    StartInfo = new ProcessStartInfo
+                    foreach (var item in _files)
                     {
-                        FileName = PapyrusCompilerEXE,
-                        Arguments = arguments,
-                        UseShellExecute = false,
-                        RedirectStandardOutput = true,
-                        RedirectStandardError = true,
-                        CreateNoWindow = true
+                        string arguments = " " + item + " " + PackageArguments(_pm);
+                        var proc = new Process
+                        {
+                            StartInfo = new ProcessStartInfo
+                            {
+                                FileName = PapyrusCompilerEXE,
+                                Arguments = arguments,
+                                UseShellExecute = false,
+                                RedirectStandardOutput = true,
+                                RedirectStandardError = true,
+                                CreateNoWindow = true
+                            }
+                        };
+                        proc.EnableRaisingEvents = true;
+                        proc.OutputDataReceived += new DataReceivedEventHandler(OutputWriter);
+                        proc.ErrorDataReceived += new DataReceivedEventHandler(ErrorWriter);
+                        proc.Start();
+                        proc.BeginOutputReadLine();
+                        proc.BeginErrorReadLine();
+                        proc.WaitForExit();
+                        proc.Close();
+                        proc.Dispose();
                     }
-                };
-                proc.EnableRaisingEvents = true;
-                proc.OutputDataReceived += new DataReceivedEventHandler(OutputWriter);
-                proc.ErrorDataReceived += new DataReceivedEventHandler(ErrorWriter);
-                proc.Start();
-                proc.BeginOutputReadLine();
-                proc.BeginErrorReadLine();
-                proc.WaitForExit();
-                proc.Close();
-                proc.Dispose();
+                }
+                else
+                {
+                    string arguments = " " + _pm.PscFolder + " " + PackageArguments(_pm);
+                    var proc = new Process
+                    {
+                        StartInfo = new ProcessStartInfo
+                        {
+                            FileName = PapyrusCompilerEXE,
+                            Arguments = arguments,
+                            UseShellExecute = false,
+                            RedirectStandardOutput = true,
+                            RedirectStandardError = true,
+                            CreateNoWindow = true
+                        }
+                    };
+                    proc.EnableRaisingEvents = true;
+                    proc.OutputDataReceived += new DataReceivedEventHandler(OutputWriter);
+                    proc.ErrorDataReceived += new DataReceivedEventHandler(ErrorWriter);
+                    proc.Start();
+                    proc.BeginOutputReadLine();
+                    proc.BeginErrorReadLine();
+                    proc.WaitForExit();
+                    proc.Close();
+                    proc.Dispose();
+                }
             }
         }
     }
