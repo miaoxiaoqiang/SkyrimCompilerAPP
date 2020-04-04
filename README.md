@@ -7,6 +7,5 @@
 * Access compilations logs.
 * Create groups of scripts to quickly compile multiple scripts.
 * Works with LE/SE version of Skyrim.
-* Drop files directly to compile them easily! (beta)
 
 ## Installing
