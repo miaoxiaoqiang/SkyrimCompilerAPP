@@ -10,11 +10,6 @@ namespace LightPapyrusCompiler
     internal class ParamsModel
     {
         /// <summary>
-        /// 参考文档
-        /// </summary>
-        [DataMember]
-        public string ReferTo { get; set; } = "https://github.com/Kapiainen/Advanced-Papyrus/blob/master/Advanced%20Papyrus.cs";
-        /// <summary>
         /// 游戏标志
         /// </summary>
         [DataMember]

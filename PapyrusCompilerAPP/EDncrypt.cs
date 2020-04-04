@@ -51,7 +51,11 @@ namespace LightPapyrusCompiler
             int MinNum = 0;
             long length = _ms.Length;
             int MaxNum = (int)(length / ((long)0x400));
-            PBar.Maximum = MaxNum;
+            if (PBar != null)
+            {
+                PBar.Maximum = MaxNum;
+            }
+            
             DES myDES = new DESCryptoServiceProvider
             {
                 Key = btRKey,
@@ -65,7 +69,7 @@ namespace LightPapyrusCompiler
                 MinNum += count;
                 try
                 {
-                    if (PBar.Value < PBar.Maximum)
+                    if (PBar != null && PBar.Value < PBar.Maximum)
                     {
                         PBar.Value++;
                     }

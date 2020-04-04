@@ -83,6 +83,12 @@
     <Compile Include="ArgumentsType.cs" />
     <Compile Include="CompilerEngine.cs" />
     <Compile Include="EDncrypt.cs" />
+    <Compile Include="ListFileForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListFileForm.Designer.cs">
+      <DependentUpon>ListFileForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ParamsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +106,9 @@
     </Compile>
     <EmbeddedResource Include="AboutForm.resx">
       <DependentUpon>AboutForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListFileForm.resx">
+      <DependentUpon>ListFileForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ParamsForm.resx">
       <DependentUpon>ParamsForm.cs</DependentUpon>
@@ -134,6 +143,7 @@
   <ItemGroup>
     <Content Include="ico\Config.ico" />
     <Content Include="ico\Edit.ico" />
+    <Content Include="ico\find.png" />
     <Content Include="ico\tip.ico" />
     <Content Include="ico\Compile.png" />
     <Content Include="ico\Main.ico" />

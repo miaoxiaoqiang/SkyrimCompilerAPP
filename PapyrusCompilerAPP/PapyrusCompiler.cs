@@ -18,6 +18,7 @@ namespace LightPapyrusCompiler
         private string safefilename = "";
         private string createfilename = "";
         private readonly Encoding EncodeType = Encoding.UTF8;
+        private ListFileForm lff = null;
 
         public PapyrusCompiler()
         {
@@ -203,9 +204,7 @@ namespace LightPapyrusCompiler
         /// <param name="e"></param>
         private void ParamsMenuItemChild_Click(object sender, EventArgs e)
         {
-#pragma warning disable IDE0067 // 丢失范围之前释放对象
             ParamsForm pf = new ParamsForm();
-#pragma warning restore IDE0067 // 丢失范围之前释放对象
             pf.ShowDialog(this);
         }
 
@@ -283,6 +282,19 @@ namespace LightPapyrusCompiler
         private void ClearInfoMenuItemChild_Click(object sender, EventArgs e)
         {
             OutPutTextBox.Clear();
+        }
+
+        private void SearchMenuItemChild_Click(object sender, EventArgs e)
+        {
+            if (lff == null)
+            {
+                ListFileForm lff = new ListFileForm();
+                lff.Show();
+            }
+            else
+            {
+                lff.TopMost = true;
+            }
         }
     }
 }
