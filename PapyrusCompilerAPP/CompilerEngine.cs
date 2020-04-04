@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -30,13 +31,15 @@ namespace LightPapyrusCompiler
         /// </summary>
         private static readonly int minimumArgumentCount = 4;
         private RichTextBox richTextBox;
+        private string _fileorfolder;
 
         /// <summary>
         /// 初始化 <see cref="CompilerEngine"/> 类的新实例
         /// </summary>
-        public CompilerEngine(RichTextBox ctb)
+        public CompilerEngine(RichTextBox ctb, FileTypeEnum filetype, string fileorfolder)
         {
             richTextBox = ctb;
+            _fileorfolder = fileorfolder;
         }
 
         /// <summary>
@@ -75,6 +78,7 @@ namespace LightPapyrusCompiler
                 //twOut.WriteLine(args.Data);
                 richTextBox.AppendText(args.Data);
                 richTextBox.AppendText(Environment.NewLine);
+                richTextBox.ScrollToCaret();
             }
         }
 
@@ -91,6 +95,7 @@ namespace LightPapyrusCompiler
                 //twError.WriteLine(args.Data);
                 richTextBox.AppendText(args.Data);
                 richTextBox.AppendText(Environment.NewLine);
+                richTextBox.ScrollToCaret();
             }
         }
 
@@ -103,17 +108,20 @@ namespace LightPapyrusCompiler
         {
             EDncrypt _ed = new EDncrypt(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + "\\config.dat", "", null);
             _ed.StartDncrypt();
+
             string PapyrusCompilerEXE = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + "\\" + PapyrusCompilerName;
             if (!File.Exists(PapyrusCompilerEXE))
             {
                 richTextBox.Clear();
                 richTextBox.AppendText("Papyrus Compiler: ERROR! Unable to find \"" + PapyrusCompilerName + "\" in \"" + PapyrusCompilerEXE.Substring(0, PapyrusCompilerEXE.LastIndexOf("\\") + 1) + "\"!");
+                richTextBox.ScrollToCaret();
                 return;
             }
             else if(string.IsNullOrEmpty(_ed.DeContent))
             {
                 richTextBox.Clear();
                 richTextBox.AppendText("Papyrus Compiler: Error! Unable to use compile function because no configuration information was found.");
+                richTextBox.ScrollToCaret();
             }
             //else if (args.Length < minimumArgumentCount)
             //{
@@ -128,7 +136,7 @@ namespace LightPapyrusCompiler
                 mStream.Close();
                 mStream.Dispose();
 
-                string arguments = " _HealSCRIPT " + PackageArguments(_pm);
+                string arguments = " "+ _fileorfolder + " " + PackageArguments(_pm);
                 
                 if (!File.Exists(PapyrusCompilerEXE))
                 {
@@ -154,8 +162,8 @@ namespace LightPapyrusCompiler
                 proc.BeginOutputReadLine();
                 proc.BeginErrorReadLine();
                 proc.WaitForExit();
-                //proc.Close();
-                //proc.Dispose();
+                proc.Close();
+                proc.Dispose();
             }
         }
     }

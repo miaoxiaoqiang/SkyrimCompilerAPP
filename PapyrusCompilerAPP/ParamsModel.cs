@@ -44,11 +44,17 @@ namespace LightPapyrusCompiler
         /// </summary>
         [DataMember]
         public List<string> AssemblyAruments { get; set; }
+        /// <summary>
+        /// 文件集合
+        /// </summary>
+        [DataMember]
+        public List<string> FileLists { get; set; }
 
         public ParamsModel()
         {
             ComplieAruments = new List<string>();
             AssemblyAruments = new List<string>();
+            FileLists = new List<string>();
             Import = "";
         }
     }

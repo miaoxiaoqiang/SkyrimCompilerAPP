@@ -37,6 +37,12 @@ namespace LightPapyrusCompiler
                 Environment.Exit(Environment.ExitCode);
             }
 
+            //if (!File.Exists(Application.StartupPath + @"\PapyrusCompiler.exe"))
+            //{
+            //    MessageBox.Show("此程序须放在游戏目录含有PapyrusCompiler程序的文件夹下", "提示");
+            //    Environment.Exit(Environment.ExitCode);
+            //}
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new PapyrusCompiler());

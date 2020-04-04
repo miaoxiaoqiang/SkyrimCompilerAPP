@@ -83,6 +83,7 @@
     <Compile Include="ArgumentsType.cs" />
     <Compile Include="CompilerEngine.cs" />
     <Compile Include="EDncrypt.cs" />
+    <Compile Include="FileTypeEnum.cs" />
     <Compile Include="ListFileForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,6 +145,7 @@
     <Content Include="ico\Config.ico" />
     <Content Include="ico\Edit.ico" />
     <Content Include="ico\find.png" />
+    <Content Include="ico\list.ico" />
     <Content Include="ico\tip.ico" />
     <Content Include="ico\Compile.png" />
     <Content Include="ico\Main.ico" />

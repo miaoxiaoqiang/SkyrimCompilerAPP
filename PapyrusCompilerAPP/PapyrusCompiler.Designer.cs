@@ -38,6 +38,7 @@
             this.BuildMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CompileMenuItemChild = new System.Windows.Forms.ToolStripMenuItem();
             this.ClearInfoMenuItemChild = new System.Windows.Forms.ToolStripMenuItem();
+            this.SearchMenuItemChild = new System.Windows.Forms.ToolStripMenuItem();
             this.设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ParamsMenuItemChild = new System.Windows.Forms.ToolStripMenuItem();
             this.HelpMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -53,7 +54,6 @@
             this.OutPutTextBox = new System.Windows.Forms.RichTextBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.SearchMenuItemChild = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.PapyrusCompilerPanel.SuspendLayout();
@@ -88,15 +88,16 @@
             // 
             this.CreateMenuItemChild.Image = ((System.Drawing.Image)(resources.GetObject("CreateMenuItemChild.Image")));
             this.CreateMenuItemChild.Name = "CreateMenuItemChild";
-            this.CreateMenuItemChild.Size = new System.Drawing.Size(100, 22);
+            this.CreateMenuItemChild.Size = new System.Drawing.Size(180, 22);
             this.CreateMenuItemChild.Text = "新建";
+            this.CreateMenuItemChild.Visible = false;
             this.CreateMenuItemChild.Click += new System.EventHandler(this.CreateMenuItemChild_Click);
             // 
             // OpenFileMenuItemChild
             // 
             this.OpenFileMenuItemChild.Image = ((System.Drawing.Image)(resources.GetObject("OpenFileMenuItemChild.Image")));
             this.OpenFileMenuItemChild.Name = "OpenFileMenuItemChild";
-            this.OpenFileMenuItemChild.Size = new System.Drawing.Size(100, 22);
+            this.OpenFileMenuItemChild.Size = new System.Drawing.Size(180, 22);
             this.OpenFileMenuItemChild.Text = "打开";
             this.OpenFileMenuItemChild.Click += new System.EventHandler(this.OpenFileMenuItemChild_Click);
             // 
@@ -104,7 +105,7 @@
             // 
             this.SaveMenuItemChild.Image = ((System.Drawing.Image)(resources.GetObject("SaveMenuItemChild.Image")));
             this.SaveMenuItemChild.Name = "SaveMenuItemChild";
-            this.SaveMenuItemChild.Size = new System.Drawing.Size(100, 22);
+            this.SaveMenuItemChild.Size = new System.Drawing.Size(180, 22);
             this.SaveMenuItemChild.Text = "保存";
             this.SaveMenuItemChild.Click += new System.EventHandler(this.SaveMenuItemChild_Click);
             // 
@@ -112,7 +113,7 @@
             // 
             this.ExitMenuItemChild.Image = ((System.Drawing.Image)(resources.GetObject("ExitMenuItemChild.Image")));
             this.ExitMenuItemChild.Name = "ExitMenuItemChild";
-            this.ExitMenuItemChild.Size = new System.Drawing.Size(100, 22);
+            this.ExitMenuItemChild.Size = new System.Drawing.Size(180, 22);
             this.ExitMenuItemChild.Text = "退出";
             this.ExitMenuItemChild.Click += new System.EventHandler(this.ExitMenuItemChild_Click);
             // 
@@ -142,6 +143,14 @@
             this.ClearInfoMenuItemChild.Text = "清除编译信息";
             this.ClearInfoMenuItemChild.Click += new System.EventHandler(this.ClearInfoMenuItemChild_Click);
             // 
+            // SearchMenuItemChild
+            // 
+            this.SearchMenuItemChild.Image = ((System.Drawing.Image)(resources.GetObject("SearchMenuItemChild.Image")));
+            this.SearchMenuItemChild.Name = "SearchMenuItemChild";
+            this.SearchMenuItemChild.Size = new System.Drawing.Size(180, 22);
+            this.SearchMenuItemChild.Text = "搜索";
+            this.SearchMenuItemChild.Click += new System.EventHandler(this.SearchMenuItemChild_Click);
+            // 
             // 设置ToolStripMenuItem
             // 
             this.设置ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -154,7 +163,7 @@
             // 
             this.ParamsMenuItemChild.Image = ((System.Drawing.Image)(resources.GetObject("ParamsMenuItemChild.Image")));
             this.ParamsMenuItemChild.Name = "ParamsMenuItemChild";
-            this.ParamsMenuItemChild.Size = new System.Drawing.Size(124, 22);
+            this.ParamsMenuItemChild.Size = new System.Drawing.Size(180, 22);
             this.ParamsMenuItemChild.Text = "参数设置";
             this.ParamsMenuItemChild.Click += new System.EventHandler(this.ParamsMenuItemChild_Click);
             // 
@@ -259,14 +268,6 @@
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // SearchMenuItemChild
-            // 
-            this.SearchMenuItemChild.Image = ((System.Drawing.Image)(resources.GetObject("SearchMenuItemChild.Image")));
-            this.SearchMenuItemChild.Name = "SearchMenuItemChild";
-            this.SearchMenuItemChild.Size = new System.Drawing.Size(180, 22);
-            this.SearchMenuItemChild.Text = "搜索";
-            this.SearchMenuItemChild.Click += new System.EventHandler(this.SearchMenuItemChild_Click);
             // 
             // PapyrusCompiler
             // 

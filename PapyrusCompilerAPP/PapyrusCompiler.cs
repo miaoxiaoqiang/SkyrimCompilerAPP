@@ -178,7 +178,7 @@ namespace LightPapyrusCompiler
         private void CompileMenuItemChild_Click(object sender, EventArgs e)
         {
             Action _ac = delegate () {
-                CompilerEngine ce = new CompilerEngine(OutPutTextBox);
+                CompilerEngine ce = new CompilerEngine(OutPutTextBox, FileTypeEnum.File, safefilename.Replace(".psc", ""));
                 ce.RunCompiler();
             };
             this.Invoke(_ac);
@@ -288,12 +288,26 @@ namespace LightPapyrusCompiler
         {
             if (lff == null)
             {
-                ListFileForm lff = new ListFileForm();
+                lff = new ListFileForm();
+                lff.SendMsgEvent += TransfEvent;
                 lff.Show();
             }
             else
             {
                 lff.TopMost = true;
+            }
+        }
+
+        private void TransfEvent(string value)
+        {
+            using (FileStream fs = new FileStream(value + ".psc", FileMode.Open, FileAccess.Read))
+            {
+                using (StreamReader sr = new StreamReader(fs, EncodeType))
+                {
+                    PapyrusCompilerTextBox.Text = sr.ReadToEnd();
+                    this.Text = "Script Edit - " + value;
+                    this.TopMost = true;
+                }
             }
         }
     }
